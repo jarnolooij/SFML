@@ -1,9 +1,14 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
-int main() 
+#include "Player.h"
+
+Player player;
+
+int main()
 {
 	//create a window thats called buas intake with the widht and the height.
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Proof of concept", sf::Style::Close | sf::Style::Titlebar);
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Proof of concept Jarno Looij MeesterProef", sf::Style::Close | sf::Style::Titlebar);
+	std::cout << "Hello World!";
 
 	//do things when the window is open.
 	while (window.isOpen()) {
@@ -18,10 +23,14 @@ int main()
 			}
 		}
 
-		std::cout << "Hello World!";
-
 		//clear the screen
 		window.clear();
+
+		//move player
+		player.move();
+
+		//draw objects
+		window.draw(player.getShape());
 
 		//display objects
 		window.display();
